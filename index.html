@@ -299,9 +299,13 @@ footer .container{display:flex;justify-content:space-between;align-items:center;
     <h2>Porozmawiajmy o Twojej firmie</h2>
     <p>30 minut rozmowy wystarczy żeby sprawdzić czy i jak AI może pomóc w Twoim biznesie. Bez zobowiązań, bez żargonu technicznego.</p>
     <div class="contact-form">
-      <input type="text" id="cf-name" placeholder="Twoje imię i nazwa firmy" />
-      <input type="tel" id="cf-phone" placeholder="Numer telefonu" />
-      <button class="btn-primary" onclick="submitForm()">Zadzwoń do mnie ↗</button>
+      <form id="contact-form" action="https://formspree.io/f/xlgovwwa" method="POST">
+        <input type="text" name="name" id="cf-name" placeholder="Twoje imię i nazwa firmy" required />
+        <input type="tel" name="phone" id="cf-phone" placeholder="Numer telefonu" required />
+        <input type="hidden" name="_subject" value="Nowe zapytanie z PolAI!" />
+        <button type="submit" class="btn-primary" id="submit-btn">Zadzwoń do mnie ↗</button>
+      </form>
+      <div class="contact-note" id="form-msg"></div>
       <div class="contact-note">lub napisz bezpośrednio: michal.poloczekk@gmail.com</div>
     </div>
   </div>
@@ -340,14 +344,30 @@ function calc(){
 ['s1','s2','s3','s4'].forEach(function(id){document.getElementById(id).addEventListener('input',calc);});
 calc();
 
-function submitForm(){
-  var name=document.getElementById('cf-name').value.trim();
-  var phone=document.getElementById('cf-phone').value.trim();
-  if(!name||!phone){alert('Uzupełnij imię i numer telefonu.');return;}
-  alert('Dziękuję '+name+'! Oddzwonię do Ciebie wkrótce.');
-  document.getElementById('cf-name').value='';
-  document.getElementById('cf-phone').value='';
-}
+var form=document.getElementById('contact-form');
+if(form){form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var btn=document.getElementById('submit-btn');
+  var msg=document.getElementById('form-msg');
+  btn.textContent='Wysyłam...';btn.disabled=true;
+  fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}})
+  .then(function(r){
+    if(r.ok){
+      msg.textContent='Dziękuję! Oddzwonię do Ciebie wkrótce.';
+      msg.style.color='#15803D';
+      form.reset();
+    } else {
+      msg.textContent='Błąd wysyłania. Napisz na michal.poloczekk@gmail.com';
+      msg.style.color='#B91C1C';
+    }
+    btn.textContent='Zadzwoń do mnie ↗';btn.disabled=false;
+  })
+  .catch(function(){
+    msg.textContent='Błąd połączenia. Napisz na michal.poloczekk@gmail.com';
+    msg.style.color='#B91C1C';
+    btn.textContent='Zadzwoń do mnie ↗';btn.disabled=false;
+  });
+});}
 </script>
 </body>
 </html>
