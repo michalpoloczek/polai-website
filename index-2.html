@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PolAi – Automatyzacja AI dla firm | Michał Poloczek</title>
+<meta name="description" content="Wdrażam chatboty i automatyzacje AI dla małych firm w województwie opolskim. Więcej klientów, mniej pracy ręcznej. Pierwsze wdrożenie w 48h.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1a1a1a;background:#fff;line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:720px;margin:0 auto;padding:0 24px;}
+
+/* NAV */
+nav{border-bottom:1px solid #f0f0f0;padding:16px 0;}
+nav .container{display:flex;justify-content:space-between;align-items:center;}
+.logo{font-size:20px;font-weight:600;letter-spacing:-0.5px;}
+.logo span{color:#185FA5;}
+.nav-btn{font-size:13px;padding:8px 18px;border:1px solid #d0d0d0;border-radius:8px;background:#fff;cursor:pointer;color:#1a1a1a;}
+.nav-btn:hover{background:#f5f5f5;}
+
+/* HERO */
+.hero{padding:64px 0 48px;text-align:center;}
+.hero-badge{display:inline-block;font-size:12px;padding:4px 14px;border-radius:20px;background:#EBF4FF;color:#185FA5;margin-bottom:20px;font-weight:500;}
+.hero h1{font-size:36px;font-weight:700;line-height:1.2;margin-bottom:16px;letter-spacing:-0.5px;}
+.hero h1 span{color:#185FA5;}
+.hero p{font-size:16px;color:#555;max-width:480px;margin:0 auto 32px;line-height:1.7;}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{font-size:14px;font-weight:600;padding:12px 28px;background:#185FA5;color:#fff;border:none;border-radius:8px;cursor:pointer;}
+.btn-primary:hover{background:#1450890;}
+.btn-secondary{font-size:14px;padding:12px 28px;background:#fff;color:#1a1a1a;border:1px solid #d0d0d0;border-radius:8px;cursor:pointer;}
+.btn-secondary:hover{background:#f5f5f5;}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:48px 0;}
+.stat{background:#f7f9fc;border-radius:10px;padding:20px;text-align:center;}
+.stat-num{font-size:28px;font-weight:700;color:#185FA5;}
+.stat-label{font-size:12px;color:#777;margin-top:4px;}
+
+/* SECTION */
+.section{padding:48px 0;border-top:1px solid #f0f0f0;}
+.section-label{font-size:11px;color:#999;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;}
+.section-title{font-size:22px;font-weight:700;margin-bottom:8px;letter-spacing:-0.3px;}
+.section-sub{font-size:15px;color:#555;line-height:1.7;margin-bottom:28px;}
+
+/* HOW */
+.steps{display:flex;flex-direction:column;gap:20px;}
+.step{display:flex;gap:16px;}
+.step-num{width:36px;height:36px;border-radius:50%;background:#EBF4FF;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#185FA5;flex-shrink:0;}
+.step h3{font-size:15px;font-weight:600;margin-bottom:4px;}
+.step p{font-size:14px;color:#555;line-height:1.6;}
+
+/* CALC */
+.calc-box{background:#f7f9fc;border-radius:12px;padding:28px;}
+.slider-group{margin-bottom:20px;}
+.slider-top{display:flex;justify-content:space-between;margin-bottom:8px;}
+.slider-label{font-size:13px;color:#555;}
+.slider-val{font-size:14px;font-weight:700;color:#185FA5;}
+input[type=range]{width:100%;accent-color:#185FA5;}
+.results{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px;}
+.result-card{border-radius:10px;padding:16px;text-align:center;}
+.result-card.danger{background:#FEE2E2;}
+.result-card.neutral{background:#EBF4FF;}
+.result-card.success{background:#DCFCE7;}
+.result-num{font-size:22px;font-weight:700;}
+.result-card.danger .result-num{color:#B91C1C;}
+.result-card.neutral .result-num{color:#185FA5;}
+.result-card.success .result-num{color:#15803D;}
+.result-label{font-size:11px;color:#777;margin-top:4px;line-height:1.4;}
+.insight{background:#EBF4FF;border-radius:10px;padding:16px;font-size:13px;color:#1e40af;line-height:1.6;margin-top:16px;}
+
+/* PRICING */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+@media(max-width:600px){.plans{grid-template-columns:1fr;}.results{grid-template-columns:1fr;}.stats{grid-template-columns:1fr;}}
+.plan{border:1px solid #e5e5e5;border-radius:12px;padding:24px 20px;}
+.plan.featured{border:2px solid #185FA5;}
+.plan-badge{font-size:11px;padding:3px 10px;border-radius:20px;background:#EBF4FF;color:#185FA5;display:inline-block;margin-bottom:12px;font-weight:600;}
+.plan-name{font-size:15px;font-weight:700;margin-bottom:4px;}
+.plan-price{font-size:30px;font-weight:800;color:#185FA5;margin-bottom:2px;}
+.plan-period{font-size:12px;color:#999;margin-bottom:16px;}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.plan-features li{font-size:13px;color:#555;display:flex;gap:8px;align-items:flex-start;}
+.check{color:#185FA5;font-weight:700;flex-shrink:0;}
+
+/* INDUSTRIES */
+.industry-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+@media(max-width:500px){.industry-grid{grid-template-columns:1fr;}}
+.industry-card{background:#f7f9fc;border-radius:10px;padding:16px 18px;}
+.industry-card h4{font-size:14px;font-weight:600;margin-bottom:4px;}
+.industry-card p{font-size:13px;color:#666;line-height:1.5;}
+
+/* ABOUT */
+.about-wrap{display:flex;gap:24px;align-items:flex-start;}
+.avatar{width:88px;height:88px;border-radius:50%;background:#EBF4FF;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:#185FA5;flex-shrink:0;}
+.about-name{font-size:20px;font-weight:700;margin-bottom:2px;}
+.about-role{font-size:13px;color:#185FA5;font-weight:500;margin-bottom:12px;}
+.about-bio{font-size:14px;color:#555;line-height:1.75;margin-bottom:14px;}
+.tags{display:flex;flex-wrap:wrap;gap:6px;}
+.tag{font-size:12px;padding:4px 12px;border-radius:20px;border:1px solid #e0e0e0;color:#666;}
+
+/* GUARANTEE */
+.guarantee{margin-top:28px;border:1px solid #e5e5e5;border-radius:12px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start;}
+.g-icon{width:44px;height:44px;border-radius:50%;background:#DCFCE7;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.g-title{font-size:14px;font-weight:600;margin-bottom:4px;}
+.g-text{font-size:13px;color:#555;line-height:1.6;}
+
+/* CTA FINAL */
+.cta-final{padding:56px 0;text-align:center;border-top:1px solid #f0f0f0;}
+.cta-final h2{font-size:26px;font-weight:700;margin-bottom:10px;letter-spacing:-0.3px;}
+.cta-final p{font-size:15px;color:#555;margin-bottom:28px;line-height:1.7;}
+.contact-form{max-width:420px;margin:0 auto;}
+.contact-form input{width:100%;border:1px solid #d0d0d0;border-radius:8px;padding:12px 16px;font-size:14px;margin-bottom:10px;outline:none;}
+.contact-form input:focus{border-color:#185FA5;}
+.contact-form .btn-primary{width:100%;font-size:15px;padding:14px;}
+.contact-note{font-size:12px;color:#999;margin-top:10px;}
+
+/* FOOTER */
+footer{padding:24px 0;border-top:1px solid #f0f0f0;}
+footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.footer-logo{font-size:16px;font-weight:700;}
+.footer-logo span{color:#185FA5;}
+.footer-copy{font-size:12px;color:#999;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo">Pol<span>AI</span></div>
+    <button class="nav-btn" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">Bezpłatna konsultacja</button>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">AI dla lokalnych firm w Polsce</div>
+    <h1>Twoi klienci pytają o 23:00.<br><span>Kto im odpowiada?</span></h1>
+    <p>Wdrażam chatboty i automatyzacje AI dla małych firm w województwie opolskim. Więcej klientów, mniej pracy ręcznej – pierwsze wdrożenie w 48 godzin.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">Umów bezpłatną konsultację</button>
+      <button class="btn-secondary" onclick="document.getElementById('cennik').scrollIntoView({behavior:'smooth'})">Zobacz pakiety</button>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">obsługa klientów bez przerwy</div></div>
+    <div class="stat"><div class="stat-num">48h</div><div class="stat-label">wdrożenie od pierwszej rozmowy</div></div>
+    <div class="stat"><div class="stat-num">0 zł</div><div class="stat-label">koszt pierwszego miesiąca</div></div>
+  </div>
+
+  <!-- JAK TO DZIAŁA -->
+  <div class="section">
+    <div class="section-label">jak to działa</div>
+    <div class="section-title">Trzy kroki do pierwszego klienta AI</div>
+    <div class="section-sub">Wdrożenie zajmuje mniej niż tydzień. Nie potrzebujesz żadnej wiedzy technicznej.</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Bezpłatna konsultacja – 30 minut</h3>
+          <p>Analizuję Twoją firmę i pokazuję dokładnie gdzie tracisz klientów przez brak automatyzacji.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Konfiguruję chatbota pod Twoją markę</h3>
+          <p>W ciągu 48 godzin masz działającego asystenta AI na swojej stronie – z Twoim logo, cenami i usługami.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Klienci piszą, chatbot odpowiada</h3>
+          <p>Ty rano sprawdzasz listę nowych zapytań. Zero przegranego czasu na telefonie po godzinach.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KALKULATOR -->
+  <div class="section">
+    <div class="section-label">kalkulator</div>
+    <div class="section-title">Ile tracisz bez asystenta AI?</div>
+    <div class="section-sub">Przesuń suwaki i sprawdź realną kwotę którą zostawiasz na stole każdego miesiąca.</div>
+    <div class="calc-box">
+      <div class="slider-group">
+        <div class="slider-top"><span class="slider-label">Zapytania od klientów miesięcznie</span><span class="slider-val" id="v1">40</span></div>
+        <input type="range" min="5" max="200" step="5" value="40" id="s1">
+      </div>
+      <div class="slider-group">
+        <div class="slider-top"><span class="slider-label">Procent zapytań po godzinach pracy</span><span class="slider-val" id="v2">35%</span></div>
+        <input type="range" min="5" max="70" step="5" value="35" id="s2">
+      </div>
+      <div class="slider-group">
+        <div class="slider-top"><span class="slider-label">Średnia wartość jednego klienta</span><span class="slider-val" id="v3">600 zł</span></div>
+        <input type="range" min="100" max="5000" step="100" value="600" id="s3">
+      </div>
+      <div class="slider-group">
+        <div class="slider-top"><span class="slider-label">Procent zapytań bez odpowiedzi który odpada</span><span class="slider-val" id="v4">60%</span></div>
+        <input type="range" min="10" max="90" step="5" value="60" id="s4">
+      </div>
+      <div class="results">
+        <div class="result-card danger"><div class="result-num" id="r1">—</div><div class="result-label">strata miesięcznie bez AI</div></div>
+        <div class="result-card neutral"><div class="result-num" id="r2">—</div><div class="result-label">klientów tracisz co miesiąc</div></div>
+        <div class="result-card success"><div class="result-num" id="r3">—</div><div class="result-label">zwrot z abonamentu 899 zł</div></div>
+      </div>
+      <div class="insight" id="insight">Przesuń suwaki aby zobaczyć wynik dla Twojej firmy.</div>
+    </div>
+  </div>
+
+  <!-- CENNIK -->
+  <div class="section" id="cennik">
+    <div class="section-label">cennik</div>
+    <div class="section-title">Jeden klient pokrywa cały koszt</div>
+    <div class="section-sub">Jeśli chatbot przyprowadzi Ci jednego klienta więcej miesięcznie – zarabiasz na abonamencie wielokrotnie.</div>
+    <div class="plans">
+      <div class="plan">
+        <div class="plan-name">Start</div>
+        <div class="plan-price">599 zł</div>
+        <div class="plan-period">miesięcznie</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span>Chatbot na stronę</li>
+          <li><span class="check">✓</span>Odpowiedzi na FAQ 24/7</li>
+          <li><span class="check">✓</span>Zbieranie zapytań</li>
+          <li><span class="check">✓</span>Raport miesięczny</li>
+        </ul>
+      </div>
+      <div class="plan featured">
+        <div class="plan-badge">najpopularniejszy</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">899 zł</div>
+        <div class="plan-period">miesięcznie</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span>Wszystko z Start</li>
+          <li><span class="check">✓</span>Przypomnienia SMS</li>
+          <li><span class="check">✓</span>Integracja z kalendarzem</li>
+          <li><span class="check">✓</span>Wsparcie priorytetowe</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <div class="plan-name">Premium</div>
+        <div class="plan-price">1499 zł</div>
+        <div class="plan-period">miesięcznie</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span>Wszystko z Pro</li>
+          <li><span class="check">✓</span>Posty social media AI</li>
+          <li><span class="check">✓</span>Automatyzacja maili</li>
+          <li><span class="check">✓</span>Dedykowany opiekun</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- DLA KOGO -->
+  <div class="section">
+    <div class="section-label">dla kogo</div>
+    <div class="section-title">Branże które obsługujemy</div>
+    <div class="section-sub">Specjalizujemy się w lokalnych firmach usługowych na Opolszczyźnie.</div>
+    <div class="industry-grid">
+      <div class="industry-card"><h4>Gabinety stomatologiczne</h4><p>Automatyczne zapisy na wizyty, przypomnienia SMS, obsługa zapytań po godzinach.</p></div>
+      <div class="industry-card"><h4>Fizjoterapia i rehabilitacja</h4><p>Rezerwacje online, odpowiedzi o zabiegi, redukcja nieodwołanych wizyt.</p></div>
+      <div class="industry-card"><h4>Restauracje i catering</h4><p>Przyjmowanie zamówień, wyceny eventów, odpowiedzi o dostępność.</p></div>
+      <div class="industry-card"><h4>Firmy budowlane i usługowe</h4><p>Automatyczne odpowiedzi na zapytania ofertowe, follow-upy, zbieranie kontaktów.</p></div>
+    </div>
+  </div>
+
+  <!-- O MNIE -->
+  <div class="section">
+    <div class="section-label">o mnie</div>
+    <div class="about-wrap">
+      <div class="avatar">MP</div>
+      <div>
+        <div class="about-name">Michał Poloczek</div>
+        <div class="about-role">Założyciel PolAI · Automatyzacja AI dla firm</div>
+        <div class="about-bio">Pomagam lokalnym firmom na Opolszczyźnie wdrażać narzędzia AI które realnie zwiększają liczbę klientów i oszczędzają czas. Nie sprzedaję technologii dla technologii – skupiam się na konkretnych efektach: więcej zapytań obsłużonych, mniej czasu straconego na powtarzalne zadania, więcej klientów którzy dostają odpowiedź zanim pójdą do konkurencji.<br><br>Jestem lokalny – z Opola – i zależy mi na tym żeby firmy z mojego regionu nie zostawały w tyle.</div>
+        <div class="tags">
+          <span class="tag">Chatboty AI</span>
+          <span class="tag">Automatyzacja procesów</span>
+          <span class="tag">Lokalny rynek opolski</span>
+          <span class="tag">Wdrożenie w 48h</span>
+        </div>
+      </div>
+    </div>
+    <div class="guarantee">
+      <div class="g-icon">🛡️</div>
+      <div>
+        <div class="g-title">Gwarancja bez ryzyka</div>
+        <div class="g-text">Pierwszy miesiąc jest bezpłatny. Jeśli chatbot nie wygeneruje żadnego nowego zapytania od klienta w ciągu 30 dni – nie płacisz nic i nie masz żadnych zobowiązań.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KONTAKT -->
+  <div class="cta-final" id="kontakt">
+    <h2>Porozmawiajmy o Twojej firmie</h2>
+    <p>30 minut rozmowy wystarczy żeby sprawdzić czy i jak AI może pomóc w Twoim biznesie. Bez zobowiązań, bez żargonu technicznego.</p>
+    <div class="contact-form">
+      <form id="contact-form" action="https://formspree.io/f/xlgovwwa" method="POST">
+        <input type="text" name="name" id="cf-name" placeholder="Twoje imię i nazwa firmy" required />
+        <input type="tel" name="phone" id="cf-phone" placeholder="Numer telefonu" required />
+        <input type="hidden" name="_subject" value="Nowe zapytanie z PolAI!" />
+        <button type="submit" class="btn-primary" id="submit-btn">Zadzwoń do mnie ↗</button>
+      </form>
+      <div class="contact-note" id="form-msg"></div>
+      <div class="contact-note">📞 574 940 983 · michal.poloczekk@gmail.com</div>
+    </div>
+  </div>
+
+</div><!-- end container -->
+
+<footer>
+  <div class="container">
+    <div class="footer-logo">Pol<span>AI</span> – Michał Poloczek</div>
+    <div class="footer-copy">Opole · 574 940 983 · michal.poloczekk@gmail.com</div>
+  </div>
+</footer>
+
+<script>
+function fmt(n){return n.toLocaleString('pl-PL');}
+function calc(){
+  var z=+document.getElementById('s1').value;
+  var p=+document.getElementById('s2').value/100;
+  var w=+document.getElementById('s3').value;
+  var o=+document.getElementById('s4').value/100;
+  document.getElementById('v1').textContent=z;
+  document.getElementById('v2').textContent=Math.round(p*100)+'%';
+  document.getElementById('v3').textContent=fmt(w)+' zł';
+  document.getElementById('v4').textContent=Math.round(o*100)+'%';
+  var traceni=Math.round(z*p*o);
+  var strata=traceni*w;
+  var roi=strata>0?Math.round(strata/899):0;
+  document.getElementById('r1').textContent=fmt(strata)+' zł';
+  document.getElementById('r2').textContent=traceni;
+  document.getElementById('r3').textContent=roi+'x';
+  var ins=document.getElementById('insight');
+  if(strata===0){ins.textContent='Przesuń suwaki aby zobaczyć wynik dla Twojej firmy.';}
+  else if(roi>=5){ins.innerHTML='<strong>Zwrot z inwestycji: '+roi+'x.</strong> Za każde 899 zł abonamentu odzyskujesz '+fmt(strata)+' zł miesięcznie w klientach których teraz tracisz.';}
+  else{ins.innerHTML='<strong>Tracisz '+fmt(strata)+' zł miesięcznie</strong> przez brak automatycznej obsługi zapytań po godzinach. To '+traceni+' klientów którzy poszli do konkurencji.';}
+}
+['s1','s2','s3','s4'].forEach(function(id){document.getElementById(id).addEventListener('input',calc);});
+calc();
+
+var form=document.getElementById('contact-form');
+if(form){form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var btn=document.getElementById('submit-btn');
+  var msg=document.getElementById('form-msg');
+  btn.textContent='Wysyłam...';btn.disabled=true;
+  fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}})
+  .then(function(r){
+    if(r.ok){
+      msg.textContent='Dziękuję! Oddzwonię do Ciebie wkrótce.';
+      msg.style.color='#15803D';
+      form.reset();
+    } else {
+      msg.textContent='Błąd wysyłania. Napisz na michal.poloczekk@gmail.com';
+      msg.style.color='#B91C1C';
+    }
+    btn.textContent='Zadzwoń do mnie ↗';btn.disabled=false;
+  })
+  .catch(function(){
+    msg.textContent='Błąd połączenia. Napisz na michal.poloczekk@gmail.com';
+    msg.style.color='#B91C1C';
+    btn.textContent='Zadzwoń do mnie ↗';btn.disabled=false;
+  });
+});}
+</script>
+</body>
+</html>
