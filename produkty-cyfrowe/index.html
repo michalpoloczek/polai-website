@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pl-PL">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Produkty cyfrowe i MVP — aplikacje webowe, SaaS, prototypy | PolAI</title>
+<meta name="description" content="Tworzymy produkty cyfrowe, MVP aplikacji webowych i prototypy SaaS. Stack: Next.js, TypeScript, OpenAI, Anthropic, Postgres. Od pomysłu do działającej aplikacji w 2-6 tygodni.">
+<meta name="keywords" content="produkty cyfrowe, MVP aplikacja webowa, prototyp SaaS, aplikacja AI, Next.js development, agencja produktów cyfrowych Polska">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://polai.tech/produkty-cyfrowe/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://polai.tech/produkty-cyfrowe/">
+<meta property="og:title" content="Produkty cyfrowe i MVP — aplikacje webowe, SaaS, prototypy | PolAI">
+<meta property="og:description" content="Od pomysłu do działającej aplikacji w 2-6 tygodni. Next.js, TypeScript, OpenAI, Anthropic.">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:site_name" content="PolAI">
+<meta property="og:image" content="https://polai.tech/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#080D17">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","serviceType":"Tworzenie produktów cyfrowych i MVP","name":"Produkty cyfrowe i MVP","provider":{"@type":"LocalBusiness","name":"PolAI","telephone":"+48795338269","email":"kontakt@polai.tech","address":{"@type":"PostalAddress","addressLocality":"Opole","addressRegion":"Opolskie","addressCountry":"PL","streetAddress":"Opole Centrum"},"url":"https://polai.tech"},"areaServed":{"@type":"Country","name":"Polska"},"description":"Tworzenie produktów cyfrowych, MVP aplikacji webowych i prototypów SaaS. Stack: Next.js, TypeScript, OpenAI, Anthropic, Postgres, Stripe.","offers":{"@type":"Offer","priceCurrency":"PLN","description":"Wycena indywidualna"}}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PolAI","item":"https://polai.tech/"},{"@type":"ListItem","position":2,"name":"Produkty cyfrowe","item":"https://polai.tech/produkty-cyfrowe/"}]}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Co to znaczy MVP?","acceptedAnswer":{"@type":"Answer","text":"MVP (Minimum Viable Product) to pierwsza wersja produktu z minimalnym zestawem funkcji potrzebnych do walidacji pomysłu z prawdziwymi użytkownikami. Nie 'wszystko co wymyślimy', tylko 'to co absolutnie kluczowe żeby sprawdzić czy ludzie tego chcą'."}},
+  {"@type":"Question","name":"Ile kosztuje stworzenie MVP?","acceptedAnswer":{"@type":"Answer","text":"Każdy projekt jest inny. Po pierwszej rozmowie i scopingu (1-2 dni) podajemy fixed price lub time & materials. Wycena indywidualna — skontaktuj się aby otrzymać konkretną kwotę."}},
+  {"@type":"Question","name":"Jak długo trwa zrobienie MVP?","acceptedAnswer":{"@type":"Answer","text":"Typowo 2-6 tygodni od podpisania umowy do pierwszej działającej wersji w produkcji. Krótkie sprinty 1-tygodniowe, demo co tydzień, kierunek dostosowujemy do feedbacku."}},
+  {"@type":"Question","name":"Czy zostanie kod, dokumentacja, czy 'czarna skrzynka'?","acceptedAnswer":{"@type":"Answer","text":"Wszystko zostaje u Ciebie: repo na GitHubie, dokumentacja w README, dostęp do wszystkich kont (Vercel, Stripe, OpenAI). Możesz kontynuować z nami albo z innym zespołem — kod jest Twój."}}
+]}
+</script>
+
+<style>
+  :root { --ink: 222 42% 6%; --cream: 210 25% 94%; --ochre: 210 100% 66%; --terra: 222 60% 28%; --background: var(--ink); --foreground: var(--cream); --primary: var(--ochre); --max: 1240px; --gutter: 24px; --font-display: 'Bricolage Grotesque', system-ui, sans-serif; --font-body: 'Inter', system-ui, sans-serif; --font-italic: 'Instrument Serif', serif; }
+  html, body { background: hsl(var(--background)); color: hsl(var(--foreground)); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+  .font-display { font-family: var(--font-display); } .font-italic { font-family: var(--font-italic); font-style: italic; }
+  .liquid-glass { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.08); }
+  .liquid-glass-strong { background: rgba(255,255,255,0.07); backdrop-filter: blur(24px) saturate(200%); border: 1px solid rgba(255,255,255,0.12); }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 9999px; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-hero { background: hsl(var(--primary)); color: hsl(var(--ink)); }
+  .btn-hero:hover { transform: translateY(-1px); box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.5); }
+  .btn-glass { color: white; }
+  .gradient-bg { background: radial-gradient(ellipse 80% 50% at 50% 0%, hsl(var(--ochre) / 0.15), transparent 70%), hsl(var(--ink)); }
+  a { color: inherit; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header class="fixed left-1/2 z-50 top-4" style="transform: translateX(-50%); width: min(1240px, calc(100vw - 32px));">
+  <div class="liquid-glass rounded-full px-2 py-2 flex items-center justify-between gap-4">
+    <a href="/" class="flex items-center gap-2 pl-3"><div class="w-7 h-7 rounded-full" style="background: radial-gradient(circle at 30% 30%, hsl(var(--ochre)), hsl(var(--terra)));"></div><span class="font-display text-lg font-semibold">Pol<span class="font-italic">AI</span></span></a>
+    <nav class="hidden md:flex items-center gap-1 text-sm">
+      <a href="/agencja-ai-opole/" class="px-3 py-2 text-white/75 hover:text-white">Agencja AI</a>
+      <a href="/chatbot-opole/" class="px-3 py-2 text-white/75 hover:text-white">Chatbot</a>
+      <a href="/voicebot-opole/" class="px-3 py-2 text-white/75 hover:text-white">Voicebot</a>
+      <a href="/automatyzacja-ai-opole/" class="px-3 py-2 text-white/75 hover:text-white">Automatyzacja</a>
+      <a href="/strony-internetowe-opole/" class="px-3 py-2 text-white/75 hover:text-white">Strony WWW</a>
+    </nav>
+    <a href="/#kontakt" class="btn btn-hero text-sm rounded-full mr-1">Zapytaj o wycenę</a>
+  </div>
+</header>
+
+<main class="gradient-bg pt-32 pb-20">
+
+<section class="max-w-[var(--max)] mx-auto px-[var(--gutter)] pt-12 md:pt-20 pb-16">
+  <nav class="text-sm text-white/55 mb-6"><a href="/" class="hover:text-white">PolAI</a> <span class="mx-2">/</span> <span>Produkty cyfrowe</span></nav>
+  <span class="liquid-glass rounded-full px-4 py-1.5 text-xs text-white/80 inline-block mb-6">MVP · Aplikacje webowe · SaaS</span>
+  <h1 class="font-display uppercase font-semibold tracking-tight text-white" style="font-size: clamp(40px, 7vw, 88px); line-height: 0.95; letter-spacing: -0.02em; max-width: 18ch;">
+    Z pomysłu do <span class="font-italic" style="text-transform: none;">działającej</span> aplikacji.
+  </h1>
+  <p class="mt-8 text-base md:text-lg text-white/70 max-w-2xl leading-relaxed">
+    Masz pomysł na produkt cyfrowy ale nie wiesz od czego zacząć. Albo masz szkic na kartce i potrzebujesz pierwszej wersji żeby pokazać inwestorom lub klientom. <strong class="text-white">Budujemy MVP aplikacji webowych</strong> w 2-6 tygodni. Twoje pomysły zamieniamy w działający, testowany przez prawdziwych użytkowników produkt.
+  </p>
+  <div class="mt-10 flex items-center gap-3 flex-wrap">
+    <a class="btn btn-hero" href="/#kontakt">Zapytaj o wycenę →</a>
+    <a class="btn btn-glass liquid-glass-strong" href="#dla-kogo">Dla kogo</a>
+  </div>
+</section>
+
+<section id="dla-kogo" class="max-w-[var(--max)] mx-auto px-[var(--gutter)] py-16 border-t border-white/10">
+  <h2 class="font-display uppercase font-semibold text-white" style="font-size: clamp(28px, 4.5vw, 56px); line-height: 1; letter-spacing: -0.02em; max-width: 22ch;">Dla kogo budujemy MVP</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
+    <div class="liquid-glass rounded-2xl p-6"><h3 class="font-display text-xl text-white mb-2">Founderzy z pomysłem</h3><p class="text-white/60 text-sm leading-relaxed">Pomysł na SaaS, marketplace, narzędzie B2B. Potrzebujesz pierwszej wersji żeby zobaczyć czy ludzie zapłacą. Robimy minimalny zestaw funkcji, testujemy z użytkownikami.</p></div>
+    <div class="liquid-glass rounded-2xl p-6"><h3 class="font-display text-xl text-white mb-2">Firmy które chcą wewnętrzny tool</h3><p class="text-white/60 text-sm leading-relaxed">Twoja firma używa 5 excelów i 3 Google Sheetów do procesu który mógłby działać w 1 aplikacji. Robimy dedykowany tool który łączy wszystko w jednym miejscu.</p></div>
+    <div class="liquid-glass rounded-2xl p-6"><h3 class="font-display text-xl text-white mb-2">Agencje i konsultanci</h3><p class="text-white/60 text-sm leading-relaxed">Chcesz zamienić swoją metodologię w narzędzie SaaS które klienci kupują samodzielnie. Budujemy produktyzację Twojego know-how.</p></div>
+    <div class="liquid-glass rounded-2xl p-6"><h3 class="font-display text-xl text-white mb-2">Startupy AI</h3><p class="text-white/60 text-sm leading-relaxed">Pomysł na produkt oparty o GPT, Claude lub własny model? Specjalizujemy się w aplikacjach AI-first. Wiemy co dziś działa, co halucynuje i co kosztuje za dużo.</p></div>
+    <div class="liquid-glass rounded-2xl p-6"><h3 class="font-display text-xl text-white mb-2">Twórcy treści i info-produktów</h3><p class="text-white/60 text-sm leading-relaxed">Kurs, baza wiedzy, narzędzie dla swojej społeczności. Robimy minimalną platformę pod Twoją niszę bez Teachable / Kajabi i ich opłat.</p></div>
+    <div class="liquid-glass rounded-2xl p-6"><h3 class="font-display text-xl text-white mb-2">Zespoły wewnątrz korpo</h3><p class="text-white/60 text-sm leading-relaxed">Dział potrzebuje narzędzia którego nie da się kupić "z półki". Budujemy szybko, integrujemy z istniejącymi systemami (Salesforce, SAP, Azure AD).</p></div>
+  </div>
+</section>
+
+<section class="max-w-[var(--max)] mx-auto px-[var(--gutter)] py-16 border-t border-white/10">
+  <h2 class="font-display uppercase font-semibold text-white mb-10" style="font-size: clamp(28px, 4.5vw, 56px); line-height: 1; letter-spacing: -0.02em;">Stack technologiczny</h2>
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 text-white/80">
+    <div class="liquid-glass rounded-xl p-5 text-sm text-center">Next.js 15 (App Router)</div>
+    <div class="liquid-glass rounded-xl p-5 text-sm text-center">TypeScript</div>
+    <div class="liquid-glass rounded-xl p-5 text-sm text-center">Tailwind CSS</div>
+    <div class="liquid-glass rounded-xl p-5 text-sm text-center">shadcn/ui</div>
+    <div class="liquid-glass rounded-xl p-5 text-sm text-center">PostgreSQL / Neon</div>
+    <div class="liquid-glass rounded-xl p-5 text-sm text-center">Drizzle / Prisma ORM</div>
+    <div class="liquid-glass rounded-xl p-5 text-sm text-center">Clerk (auth)</div>
+    <div class="liquid-glass rounded-xl p-5 text-sm text-center">Stripe (płatności)</div>
+    <div class="liquid-glass rounded-xl p-5 text-sm text-center">OpenAI (GPT-5)</div>
+    <div class="liquid-glass rounded-xl p-5 text-sm text-center">Anthropic Claude</div>
+    <div class="liquid-glass rounded-xl p-5 text-sm text-center">Resend (email)</div>
+    <div class="liquid-glass rounded-xl p-5 text-sm text-center">Vercel / Cloudflare</div>
+  </div>
+  <p class="mt-8 text-white/55 text-sm max-w-2xl">Wybieramy nowoczesne, sprawdzone narzędzia z aktywnymi społecznościami. Nie testujemy egzotycznych frameworków na Twoim budżecie. Wszystko co budujemy ma deploy w 1 minutę i działa na produkcji od pierwszego dnia.</p>
+</section>
+
+<section class="max-w-[var(--max)] mx-auto px-[var(--gutter)] py-16 border-t border-white/10">
+  <h2 class="font-display uppercase font-semibold text-white mb-10" style="font-size: clamp(28px, 4.5vw, 56px); line-height: 1; letter-spacing: -0.02em;">Etapy współpracy</h2>
+  <ol class="space-y-6 text-white/75">
+    <li class="flex gap-5"><span class="font-italic text-3xl shrink-0 w-12" style="color: hsl(var(--ochre));">01.</span><div><strong class="text-white">Discovery (2-3 dni)</strong> — rozmowa, scoping, mapa kluczowych funkcji. Wynik: dokument z opisem MVP, listą feature'ów, timeline'em i wyceną.</div></li>
+    <li class="flex gap-5"><span class="font-italic text-3xl shrink-0 w-12" style="color: hsl(var(--ochre));">02.</span><div><strong class="text-white">Design + prototyp (1 tydzień)</strong> — proste wireframe'y w Figmie albo bezpośrednio w kodzie. Zatwierdzamy co budujemy, zanim napiszemy linię produkcyjnego kodu.</div></li>
+    <li class="flex gap-5"><span class="font-italic text-3xl shrink-0 w-12" style="color: hsl(var(--ochre));">03.</span><div><strong class="text-white">Sprinty 1-tygodniowe</strong> — co tydzień działająca wersja na produkcji. Klikasz, testujesz, dajesz feedback. Kierunek korygujemy bieżąco.</div></li>
+    <li class="flex gap-5"><span class="font-italic text-3xl shrink-0 w-12" style="color: hsl(var(--ochre));">04.</span><div><strong class="text-white">Launch i wsparcie</strong> — wdrażamy na produkcję, podłączamy domenę, podpinamy płatności. Po launchu wspieramy w utrzymaniu, dodawaniu funkcji, rozwijaniu produktu.</div></li>
+  </ol>
+  <p class="mt-8 text-white/55 text-sm max-w-2xl"><strong class="text-white">Ważne:</strong> aktualnie wszystkie nasze produkty są w fazie prototypów. Stosujemy podejście "build → measure → learn" — szybko walidujemy pomysł zanim zaczniemy go skalować.</p>
+</section>
+
+<section class="max-w-[var(--max)] mx-auto px-[var(--gutter)] py-16 border-t border-white/10">
+  <h2 class="font-display uppercase font-semibold text-white mb-10" style="font-size: clamp(28px, 4.5vw, 56px); line-height: 1; letter-spacing: -0.02em;">FAQ</h2>
+  <div class="space-y-4">
+    <details class="liquid-glass rounded-xl p-6"><summary class="font-display text-lg text-white cursor-pointer">Czy mogę być właścicielem kodu?</summary><p class="text-white/65 mt-3 leading-relaxed">Tak. Cały kod, repo, dostępy, dokumentacja zostają u Ciebie. Możesz kontynuować z nami albo z innym zespołem — nic Cię nie wiąże.</p></details>
+    <details class="liquid-glass rounded-xl p-6"><summary class="font-display text-lg text-white cursor-pointer">Co jeśli MVP nie zadziała na rynku?</summary><p class="text-white/65 mt-3 leading-relaxed">To normalne — większość produktów wymaga pivotu po pierwszej walidacji. Tworzymy MVP które jest łatwe do zmiany. Drobne pivoty robimy w ramach umowy, większe wymagają nowego scope'u.</p></details>
+    <details class="liquid-glass rounded-xl p-6"><summary class="font-display text-lg text-white cursor-pointer">Czy podpisujecie NDA?</summary><p class="text-white/65 mt-3 leading-relaxed">Tak, przed rozmową o szczegółach pomysłu chętnie podpiszemy NDA. Spotkanie wstępne realizujemy bez NDA — wystarczy ogólny kierunek produktu.</p></details>
+    <details class="liquid-glass rounded-xl p-6"><summary class="font-display text-lg text-white cursor-pointer">Czy robicie aplikacje mobilne?</summary><p class="text-white/65 mt-3 leading-relaxed">Specjalizujemy się w web apps (responsywne, działają też na telefonie). Native iOS/Android nie robimy — polecamy do tego sprawdzonych partnerów.</p></details>
+  </div>
+</section>
+
+<section class="max-w-[var(--max)] mx-auto px-[var(--gutter)] py-20 mt-10">
+  <div class="liquid-glass-strong rounded-3xl p-10 md:p-16 text-center">
+    <h2 class="font-display uppercase font-semibold text-white" style="font-size: clamp(32px, 5vw, 64px); line-height: 1; letter-spacing: -0.02em;">Masz pomysł na produkt?</h2>
+    <p class="mt-6 text-white/70 max-w-2xl mx-auto">30 minut rozmowy o Twoim pomyśle. Bez prezentacji, bez sprzedaży — tylko ocena: czy to da się zrobić, w jakim czasie, ile będzie kosztować, czy to dobry pomysł na biznes.</p>
+    <div class="mt-10 flex items-center justify-center gap-3 flex-wrap">
+      <a class="btn btn-hero" href="/#kontakt">Zapytaj o wycenę →</a>
+      <a class="btn btn-glass liquid-glass" href="tel:+48795338269">+48 795 338 269</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="border-t border-white/10 py-10 mt-10">
+  <div class="max-w-[var(--max)] mx-auto px-[var(--gutter)] flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/50">
+    <div>© 2026 PolAI · Agencja AI z Opola</div>
+    <nav class="flex flex-wrap gap-x-5 gap-y-2 justify-center">
+      <a href="/" class="hover:text-white">Strona główna</a>
+      <a href="/agencja-ai-opole/" class="hover:text-white">Agencja AI</a>
+      <a href="/chatbot-opole/" class="hover:text-white">Chatbot</a>
+      <a href="/voicebot-opole/" class="hover:text-white">Voicebot</a>
+      <a href="/automatyzacja-ai-opole/" class="hover:text-white">Automatyzacja</a>
+      <a href="/strony-internetowe-opole/" class="hover:text-white">Strony WWW</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
